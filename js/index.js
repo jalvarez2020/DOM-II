@@ -8,10 +8,10 @@ const button = document.querySelectorAll('.btn');
 const paragraph = document.querySelectorAll('p');
 const pHeader2 = document.querySelectorAll('h2');
 const pHeader4 = document.querySelectorAll('h4');
+const destination = document.querySelectorAll('.destination')
+const nav = document.querySelector('nav');
 
-
-
-
+nav.event.preventDefault();
 const navHoverHandler = function (event) {
   event.target.style.color = 'red';
 }
@@ -48,7 +48,7 @@ imgContent.forEach((boxShadow) => {
 })
 
 const btnScale = function (event) {
-  event.target.style.transform = 'scale(2, 3)'
+  event.target.style.transform = 'scale(1, 1.5)'
 }
 
 button.forEach((sizeBtn) => {
@@ -57,9 +57,10 @@ button.forEach((sizeBtn) => {
 
 const paragraphDisplay = function (event) {
   event.target.style.display = 'none';
+ 
 }
 paragraph.forEach((hide) => {
-  hide.addEventListener('mousemove', paragraphDisplay)
+  hide.addEventListener('mouseout', paragraphDisplay)
 })
 
 const pHeaders = function (event) {
@@ -68,3 +69,11 @@ const pHeaders = function (event) {
 pHeader2.forEach((resize) => {
   resize.addEventListener('mouseout', pHeaders)
 });
+const destinationColor = function (event) {
+  event.stopPropagation();
+  event.target.style.backgroundColor = 'yellow';
+
+}
+destination.forEach((colors) => {
+  colors.addEventListener('mouseout', destinationColor);
+})
